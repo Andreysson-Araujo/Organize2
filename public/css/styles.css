@@ -1,0 +1,110 @@
+/*genreal*/
+* {
+    font-family: 'Roboto';
+}
+
+
+
+body {
+    min-height: 100vh;
+    padding-bottom: 100px;
+    position: relative;
+}
+
+header {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.row {
+    margin: 0;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.btn-primary {
+    background-color: #F2A340;
+    border:2px solid #C28008;
+}
+
+.btn-primary {
+    background-color: #C28008 ;
+    border-color: #C28008;
+}
+
+#navbar img {
+    width: 60px;
+}
+
+#navbar {
+    justify-content: space-between;
+}
+
+#navbar a {
+    font-size: 14px;
+    color: #757575;
+}
+
+#navbar a:hover {
+    color: #F2A340;
+}
+
+
+/*Search Container */
+
+#search-container {
+    background-image: url("../img/banner.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    padding: 50px;
+    text-align: center;
+}
+
+#search-container h1{
+    font-weight: 700;
+    color: #eeff00;
+    margin-bottom: 30px;
+    width: 900;
+}
+
+
+#search-container form{
+    width: 50%;
+    margin: 0 auto;
+}
+
+/*Products-list recents*/ 
+#itensRecents-container{
+   padding: 50px;
+   text-align: center;
+}
+
+#itensRecents-container h2{
+    margin-bottom: 10px;
+    text-align: center;
+}
+#line3 {
+    align-items: center;
+    text-align: center;
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    background-color: #335e48;
+    color: #fff;
+    padding: 30px;
+    position: fixed; /* Ou use 'relative' se não quiser fixar */
+    bottom: 0;
+    width: 100%; /* Corrige o valor de 'width' */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Adiciona um sombreamento opcional */
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
