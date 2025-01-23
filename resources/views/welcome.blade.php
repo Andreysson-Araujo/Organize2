@@ -37,6 +37,7 @@
       </div>
     @endforeach
   </div>
+  <button type="submit" class="btn btn-secondary">Ver itens</button>
 </div>
 
 @endsection

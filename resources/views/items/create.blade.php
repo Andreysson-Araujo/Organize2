@@ -24,8 +24,13 @@
             <input type="number" class="form-control" id="quantidade" name="quantidade" placeholder="Quantidade do item" required>
         </div>
         <div class="form-group">
-            <label for="local">Local onde vai ser Guardado:</label>
-            <input type="text" class="form-control" id="local" name="local" placeholder="Local" required>
+            <label for="local">Selecione o Local</label>
+<select id="local" name="local_id" class="form-control">
+    <option value="">Selecione um local</option>
+    @foreach($locais as $local)
+        <option value="{{ $local->id }}">{{ $local->nome }}</option>
+    @endforeach
+</select>
         </div>
         <div class="form-group">
             <label for="status">Status:</label>
@@ -43,7 +48,7 @@
             <label for="marca">Marca:</label>
             <input type="text" class="form-control" id="marca" name="marca" placeholder="Marca do item" required>
         </div>
-        <button type="submit" class="btn btn-primary">Salvar</button>
+        <button type="submit" class="btn btn-success">Salvar</button>
     </form>
 </div>
 

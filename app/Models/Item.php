@@ -14,7 +14,7 @@ class Item extends Model
         'nome_item', 
         'patrimonio', 
         'quantidade', 
-        'local', 
+        'local_id', 
         'status', 
         'categoria', 
         'marca'

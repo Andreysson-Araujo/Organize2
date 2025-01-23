@@ -106,7 +106,7 @@ footer {
     text-align: center;
     background-color: #335e48;
     color: #fff;
-    padding: 50px;
+    padding: 8px;
     position: fixed; /* Ou use 'relative' se não quiser fixar */
     bottom: 0;
     width: 100%; /* Corrige o valor de 'width' */
