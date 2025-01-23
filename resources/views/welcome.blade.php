@@ -21,6 +21,22 @@
   <h2>Últimos Itens Adicionados</h2>
   
   <div class="row">
+    @foreach ($recentItems as $item)
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ $item->nome_item }}</h5>
+            <p class="card-text"><strong>Patrimônio:</strong> {{ $item->patrimonio }}</p>
+            <p class="card-text"><strong>Quantidade:</strong> {{ $item->quantidade }}</p>
+            <p class="card-text"><strong>Local:</strong> {{ $item->local }}</p>
+            <p class="card-text"><strong>Status:</strong> {{ ucfirst($item->status) }}</p>
+            <p class="card-text"><strong>Categoria:</strong> {{ $item->categoria }}</p>
+            <p class="card-text"><strong>Marca:</strong> {{ $item->marca }}</p>
+          </div>
+        </div>
+      </div>
+    @endforeach
   </div>
 </div>
+
 @endsection

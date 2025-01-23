@@ -9,10 +9,11 @@ class ItemController extends Controller
 {
     public function index() {
         // Recupera todos os itens do banco de dados
-        $items = Item::all();
+          // Buscar os últimos 3 itens adicionados
+        $recentItems = Item::orderBy('created_at', 'desc')->take(3)->get();
 
-        // Retorna a view 'welcome' com os itens passados como variável
-        return view('welcome', ['items' => $items]);
+        // Passar a variável para a view
+        return view('welcome', compact('recentItems'));
     }
 
     public function create() {
