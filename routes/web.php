@@ -5,7 +5,7 @@ use App\Http\Controllers\ItemController;
 
 Route::get('/', [ItemController::class, 'index']);
 Route::get('/items/create', [ItemController::class, 'create']);
-Route::post('/items', [ItemController::class, 'store'])->name('items.store');  // Aqui está a rota store
+Route::post('/items', [ItemController::class, 'store']);  // Aqui está a rota store
 
 Route::get('/items', function () {
     $busca = request('search');
