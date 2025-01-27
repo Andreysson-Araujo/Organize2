@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\LocalController;
 
 // Página inicial que exibe os últimos itens
 Route::get('/', [ItemController::class, 'index']);
@@ -14,6 +15,10 @@ Route::get('/items/{id}', [ItemController::class, 'show']);
 
 // Salvar um novo item
 Route::post('/items', [ItemController::class, 'store']);  
+
+Route::get('/locais', LocalController::class);
+
+Route::get('/locais/create', [ItemController::class, 'create']);
 
 // Rota para buscar itens (busca por nome)
 Route::get('/items', function () {

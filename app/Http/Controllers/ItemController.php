@@ -8,43 +8,47 @@ use App\Models\Local;
 
 class ItemController extends Controller
 {
+    /**
+     * Exibe a página inicial com os itens mais recentes.
+     */
     public function index()
     {
         $recentItems = Item::orderBy('created_at', 'desc')->take(3)->get();
         return view('welcome', compact('recentItems'));
     }
 
+    /**
+     * Exibe o formulário para criar um novo item.
+     */
     public function create()
     {
-        // Recupera todos os locais do banco de dados
+        // Recupera todos os locais disponíveis para o dropdown
         $locais = Local::all();
 
-        // Retorna a view com os locais
+        // Retorna a view de criação de itens com os locais disponíveis
         return view('items.create', compact('locais'));
     }
 
+    /**
+     * Armazena um novo item no banco de dados.
+     */
     public function store(Request $request)
     {
+        // Validação dos dados enviados pelo formulário
         $validatedData = $request->validate([
             'nome_item' => 'required|string|max:255',
             'patrimonio' => 'required|string|max:255',
             'quantidade' => 'required|integer|min:1',
             'status' => 'required|string|max:255',
             'categoria' => 'required|string|max:255',
-            'local_id' => 'required|exists:locais,id', // Valida se o local existe
+            'local_id' => 'required|exists:locais,id', // Garante que o local selecionado exista
             'marca' => 'required|string|max:255',
         ]);
 
-        $item = new Item;
-        $item->nome_item = $request->input('nome_item');
-        $item->patrimonio = $request->input('patrimonio');
-        $item->quantidade = $request->input('quantidade');
-        $item->status = $request->input('status');
-        $item->categoria = $request->input('categoria');
-        $item->local_id = $request->input('local_id'); // Salva o local_id corretamente
-        $item->marca = $request->input('marca');
-        $item->save();
+        // Criação de um novo item com os dados validados
+        $item = Item::create($validatedData);
 
+        // Redireciona para a página inicial com uma mensagem de sucesso
         return redirect('/')->with('msg', 'Item criado com sucesso!');
     }
 }
