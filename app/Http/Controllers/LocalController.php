@@ -1,5 +1,5 @@
 <?php
-
+    
 namespace App\Http\Controllers;
 
 use App\Models\Local;
@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class LocalController extends Controller
 {
-    // Lista todos os locais
     public function index()
     {
         $locais = Local::all();
@@ -27,8 +26,9 @@ class LocalController extends Controller
             'nome' => 'required|string|max:255',
         ]);
 
-        Local::create($validated);
+        $local = Local::create($validated);
 
-        return redirect()->route('locais.index')->with('success', 'Local criado com sucesso!');
-    }
+        return redirect('/')->with('msg', 'Item criado com sucesso!'); 
+       }
+  
 }

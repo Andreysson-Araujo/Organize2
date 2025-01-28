@@ -1,19 +1,26 @@
-@extends('layouts.app')
+@extends('layouts.main')
+
+@section('title', 'Organize2.0 - Locais')
 
 @section('content')
-    <h1>Locais</h1>
-    <a href="{{ route('locais.create') }}">Adicionar Novo Local</a>
-    <ul>
-        @foreach($locais as $local)
-            <li>
-                {{ $local->nome }}
-                <a href="{{ route('locais.edit', $local->id) }}">Editar</a>
-                <form action="{{ route('locais.destroy', $local->id) }}" method="POST" style="display:inline;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</button>
-                </form>
-            </li>
-        @endforeach
-    </ul>
+    <div class="container">
+        <h1>Locais</h1>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($locais as $local)
+                    <tr>
+                        <td>{{ $local->id }}</td>
+                        <td>{{ $local->nome }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 @endsection

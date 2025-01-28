@@ -12,9 +12,8 @@ class Local extends Model
     // Nome da tabela no banco de dados
     protected $table = 'locais';
 
-    // Permitir preenchimento em massa (caso necessário)
+    // Permitir preenchimento em massa
     protected $fillable = [
-        'nome',
-        'descricao', // Adicione os campos que a tabela "locais" possui
+        'nome', // Apenas o campo 'nome' está presente na migração
     ];
 }

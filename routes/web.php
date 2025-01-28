@@ -16,9 +16,13 @@ Route::get('/items/{id}', [ItemController::class, 'show']);
 // Salvar um novo item
 Route::post('/items', [ItemController::class, 'store']);  
 
-Route::get('/locais', LocalController::class);
+// Rotas do LocalController (Index, Create, Store)
+Route::post('/locais', [LocalController::class, 'store']);
+Route::get('/locais/create', [LocalController::class, 'create']);
 
-Route::get('/locais/create', [ItemController::class, 'create']);
+Route::get('/locais', [LocalController::class, 'index']);
+
+
 
 // Rota para buscar itens (busca por nome)
 Route::get('/items', function () {
