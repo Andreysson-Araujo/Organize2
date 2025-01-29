@@ -28,7 +28,34 @@ class LocalController extends Controller
 
         $local = Local::create($validated);
 
-        return redirect('/')->with('msg', 'Item criado com sucesso!'); 
+        return redirect('/')->with('msg', 'Local adicionado com sucesso!'); 
        }
+
+       public function edit($id)
+{
+    $local = Local::findOrFail($id);
+    return view('locais.edit', compact('local'));
+}
+
+public function update(Request $request, $id)
+{
+    $request->validate([
+        'nome' => 'required|string|max:255',
+    ]);
+
+    $local = Local::findOrFail($id);
+    $local->update($request->all());
+
+    return redirect()->route('locais.index')->with('msg', 'Local atualizado com sucesso!');
+}
+
+public function destroy($id)
+{
+    $local = Local::findOrFail($id);
+    $local->delete();
+
+    return redirect()->route('locais.index')->with('msg', 'Local excluído com sucesso!');
+}
+
   
 }

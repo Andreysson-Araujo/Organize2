@@ -31,7 +31,7 @@
                 <a href="/items/create" class="nav-link">Entrada</a>
               </li>
               <li class="nav-item">
-                <a href="/locais/create" class="nav-link">Locais</a>
+                <a href="/locais/" class="nav-link">Locais</a>
               </li>
               <li class="nav-item">
                 <a href="/" class="nav-link">Saida</a>

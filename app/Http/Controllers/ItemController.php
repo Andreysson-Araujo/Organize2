@@ -49,6 +49,6 @@ class ItemController extends Controller
         $item = Item::create($validatedData);
 
         // Redireciona para a página inicial com uma mensagem de sucesso
-        return redirect('/')->with('msg', 'Item criado com sucesso!');
+        return redirect('/')->with('msg', 'Item Adicionado com sucesso!');
     }
 }

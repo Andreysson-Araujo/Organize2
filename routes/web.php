@@ -20,7 +20,14 @@ Route::post('/items', [ItemController::class, 'store']);
 Route::post('/locais', [LocalController::class, 'store']);
 Route::get('/locais/create', [LocalController::class, 'create']);
 
-Route::get('/locais', [LocalController::class, 'index']);
+Route::get('/locais', [LocalController::class, 'index'])->name('locais.index');
+Route::get('/locais/create', [LocalController::class, 'create'])->name('locais.create');
+Route::post('/locais', [LocalController::class, 'store'])->name('locais.store');
+Route::get('/locais/{id}/edit', [LocalController::class, 'edit'])->name('locais.edit');
+Route::put('/locais/{id}', [LocalController::class, 'update'])->name('locais.update');
+Route::delete('/locais/{id}', [LocalController::class, 'destroy'])->name('locais.destroy');
+
+Route::resource('locais', LocalController::class);
 
 
 
