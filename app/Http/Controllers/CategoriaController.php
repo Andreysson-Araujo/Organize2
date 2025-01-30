@@ -24,16 +24,33 @@ class CategoriaController extends Controller
             'nome' => 'required|string|max:255',
         ]);
 
-        $categoria = Categoria::create($validated);
-        return redirect('/')->with('msg', 'Categoria adicionada com sucesso');
+        Categoria::create($validated);
+        return redirect()->route('categorias.index')->with('msg', 'Categoria adicionada com sucesso!');
     }
-        public function edit($id)
-        {
-            $categorias = Categoria::findOrFail($id);
-            return view('locais.edit', compact('local')); 
-        }
 
+    public function edit($id)
+    {
+        $categoria = Categoria::findOrFail($id);
+        return view('categorias.edit', compact('categoria')); 
+    }
 
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nome' => 'required|string|max:255',
+        ]);
 
-  
+        $categoria = Categoria::findOrFail($id);
+        $categoria->update($request->all());
+
+        return redirect()->route('categorias.index')->with('msg', 'Categoria atualizada com sucesso!');
+    }
+
+    public function destroy($id)
+    {
+        $categoria = Categoria::findOrFail($id);
+        $categoria->delete();
+
+        return redirect()->route('categorias.index')->with('msg', 'Categoria excluída com sucesso!');
+    }
 }

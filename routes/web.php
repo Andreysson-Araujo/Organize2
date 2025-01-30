@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LocalController;
+use App\Http\Controllers\CategoriaController;
 
 // Página inicial que exibe os últimos itens
 Route::get('/', [ItemController::class, 'index']);
@@ -29,6 +30,8 @@ Route::delete('/locais/{id}', [LocalController::class, 'destroy'])->name('locais
 
 Route::resource('locais', LocalController::class);
 
+Route::resource('categorias', CategoriaController::class);
+Route::post('/categorias/create', [LocalController::class, 'store'])->name('locais.store');
 
 
 // Rota para buscar itens (busca por nome)

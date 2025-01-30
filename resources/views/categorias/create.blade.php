@@ -6,7 +6,7 @@
 
 <div id="ite,-create-container" class="col-md-6 offset-md-3" >
     <h1>Adicionar Categoria</h1>
-    <form action="/locais" method="POST">
+    <form action="/categorias" method="POST">
         @csrf
         <div class="form-group">
             <label for="nome"> Nome da Categoria:</label>
