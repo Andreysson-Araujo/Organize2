@@ -4,39 +4,36 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LocalController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ProfileController;
 
 // Página inicial que exibe os últimos itens
 Route::get('/', [ItemController::class, 'index']);
 
 // Rota para criar um novo item
 Route::get('/items/create', [ItemController::class, 'create']);
-
-// Exibir um item específico (detalhes do item)
 Route::get('/items/{id}', [ItemController::class, 'show']); 
-
-// Salvar um novo item
 Route::post('/items', [ItemController::class, 'store']);  
 
-// Rotas do LocalController (Index, Create, Store)
-Route::post('/locais', [LocalController::class, 'store']);
-Route::get('/locais/create', [LocalController::class, 'create']);
-
-Route::get('/locais', [LocalController::class, 'index'])->name('locais.index');
-Route::get('/locais/create', [LocalController::class, 'create'])->name('locais.create');
-Route::post('/locais', [LocalController::class, 'store'])->name('locais.store');
-Route::get('/locais/{id}/edit', [LocalController::class, 'edit'])->name('locais.edit');
-Route::put('/locais/{id}', [LocalController::class, 'update'])->name('locais.update');
-Route::delete('/locais/{id}', [LocalController::class, 'destroy'])->name('locais.destroy');
-
+// Rotas do LocalController (CRUD)
 Route::resource('locais', LocalController::class);
-
 Route::resource('categorias', CategoriaController::class);
-Route::post('/categorias/create', [LocalController::class, 'store'])->name('locais.store');
-
 
 // Rota para buscar itens (busca por nome)
 Route::get('/items', function () {
     $busca = request('search');
-    // Certifique-se de que você tem uma view 'items' configurada
     return view('items', ['busca' => $busca]);
 });
+
+// 🛑 Mantendo a Autenticação
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+// Importa as rotas de autenticação
+require __DIR__.'/auth.php';
