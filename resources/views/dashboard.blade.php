@@ -11,6 +11,13 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in!") }}
                 </div>
+
+                <!-- Botão para ir para a página Welcome -->
+                <div class="mt-4">
+                    <a href="{{ url('/') }}" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+                        Ir para a Página Inicial
+                    </a>
+                </div>
             </div>
         </div>
     </div>

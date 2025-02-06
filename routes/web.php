@@ -7,7 +7,14 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProfileController;
 
 // Página inicial que exibe os últimos itens
-Route::get('/', [ItemController::class, 'index']);
+Route::get('/', function () {
+    return redirect()->route('login'); // 🔥 Redireciona para a tela de login
+});
+
+// Em routes/web.php
+Route::get('/welcome', [ItemController::class, 'index'])->name('welcome');
+
+
 
 // Rota para criar um novo item
 Route::get('/items/create', [ItemController::class, 'create']);

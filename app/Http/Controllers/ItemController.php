@@ -13,8 +13,8 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $recentItems = Item::orderBy('created_at', 'desc')->take(3)->get();
-        return view('welcome', compact('recentItems'));
+        $recentItems = Item::latest()->take(10)->get(); // Pega os 10 últimos itens adicionados
+    return view('welcome', compact('recentItems'));
     }
 
     /**
