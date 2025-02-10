@@ -42,8 +42,14 @@
         </div>
         <div class="form-group">
             <label for="categoria">Categoria:</label>
-            <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Categoria do item" required>
+            <select id="categoria" name="categoria" class="form-control" required>
+                <option value="">Selecione uma categoria</option>
+                @foreach($categorias as $categoria)
+                    <option value="{{ $categoria->nome }}">{{ $categoria->nome }}</option>
+                @endforeach
+            </select>
         </div>
+        
         <div class="form-group">
             <label for="marca">Marca:</label>
             <input type="text" class="form-control" id="marca" name="marca" placeholder="Marca do item" required>
