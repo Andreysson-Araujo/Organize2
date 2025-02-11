@@ -28,7 +28,7 @@
                         <td>{{ ucfirst($item->status) }}</td>
                         <td>{{ $item->categoria->nome ?? 'N/A' }}</td> <!-- Exibindo nome da categoria -->
                         <td>
-                            <a href="" class="btn btn-warning">Editar</a>
+                            <a href="{{ route('items.edit', $item->id) }}" class="btn btn-warning">Editar</a>
                             <form action="" method="POST" style="display: inline;">
                                 @csrf
                                 @method('DELETE')

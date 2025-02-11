@@ -21,6 +21,7 @@ Route::get('/items/create', [ItemController::class, 'create']);
 Route::get('/items/{id}', [ItemController::class, 'show']); 
 Route::post('/items', [ItemController::class, 'store']);
 Route::get('/items', [ItemController::class, 'index'])->name('items.index');
+Route::get('/items/{id}/edit', [ItemController::class, 'edit'])->name('items.edit');
 
 
 // Rotas do LocalController (CRUD)

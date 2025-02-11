@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categoria;
 use Illuminate\Http\Request;
-use App\Models\Item; 
+use App\Models\Item;
 use App\Models\Local;
 
 class ItemController extends Controller
@@ -36,23 +36,46 @@ class ItemController extends Controller
      * Armazena um novo item no banco de dados.
      */
     public function store(Request $request)
-{
-    // Validação dos dados enviados pelo formulário
-    $validatedData = $request->validate([
-        'nome_item' => 'required|string|max:255',
-        'patrimonio' => 'required|string|max:255',
-        'quantidade' => 'required|integer|min:1',
-        'status' => 'required|string|max:255',
-        'categoria_id' => 'required|exists:categoria,id', // Garante que a categoria exista
-        'local_id' => 'required|exists:locais,id', // Garante que o local selecionado exista
-    ]);
+    {
+        // Validação dos dados enviados pelo formulário
+        $validatedData = $request->validate([
+            'nome_item' => 'required|string|max:255',
+            'patrimonio' => 'required|string|max:255',
+            'quantidade' => 'required|integer|min:1',
+            'status' => 'required|string|max:255',
+            'categoria_id' => 'required|exists:categoria,id', // Garante que a categoria exista
+            'local_id' => 'required|exists:locais,id', // Garante que o local selecionado exista
+        ]);
 
-    // Criação de um novo item com os dados validados
-    $item = Item::create($validatedData);
+        // Criação de um novo item com os dados validados
+        $item = Item::create($validatedData);
 
-    // Redireciona para a página inicial com uma mensagem de sucesso e o item recém-criado
-    return redirect()->route('welcome')->with('msg', 'Item Adicionado com sucesso!');
+        // Redireciona para a página inicial com uma mensagem de sucesso e o item recém-criado
+        return redirect()->route('welcome')->with('msg', 'Item Adicionado com sucesso!');
+    }
+    public function edit($id)
+    {
+        $item = Item::findOrFail($id);
+        $locais = Local::all();
+        $categorias = Categoria::all();
 
-}
+        return view('items.edit', compact('item', 'locais', 'categorias'));
+    }
 
+    public function update(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'nome_item' => 'required|string|max:255',
+            'patrimonio' => 'required|string|max:255',
+            'quantidade' => 'required|integer|min:1',
+            'local_id' => 'required|exists:locais,id',
+            'status' => 'required|in:ativo,inativo',
+            'categoria_id' => 'required|exists:categorias,id',
+        ]);
+
+        $item = Item::findOrFail($id);
+        $item->update($validated);
+
+        return redirect()->route('items.index')->with('success', 'Item atualizado com sucesso!');
+    }
 }
