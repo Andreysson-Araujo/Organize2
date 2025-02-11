@@ -20,6 +20,7 @@ Route::get('/welcome', [ItemController::class, 'index'])->name('welcome');
 Route::get('/items/create', [ItemController::class, 'create']);
 Route::get('/items/{id}', [ItemController::class, 'show']); 
 Route::post('/items', [ItemController::class, 'store']);
+Route::get('/items', [ItemController::class, 'index'])->name('items.index');
 
 
 // Rotas do LocalController (CRUD)
@@ -27,10 +28,7 @@ Route::resource('locais', LocalController::class);
 Route::resource('categorias', CategoriaController::class);
 
 // Rota para buscar itens (busca por nome)
-Route::get('/items', function () {
-    $busca = request('search');
-    return view('items', ['busca' => $busca]);
-});
+
 
 // 🛑 Mantendo a Autenticação
 Route::middleware('auth')->group(function () {

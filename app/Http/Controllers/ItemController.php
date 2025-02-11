@@ -14,9 +14,9 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $recentItems = Item::with(['local', 'categoria'])->latest()->take(10)->get();
+        $items = Item::with(['local', 'categoria'])->latest()->get();
 
-        return view('welcome', compact('recentItems'));
+        return view('items.index', compact('items'));
     }
 
     /**
