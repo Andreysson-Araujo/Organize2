@@ -7,7 +7,7 @@
 <div id="item-create-container" class="col-md-6 offset-md-3">
 
     <h1>Adicionar Novo Local</h1>
-    <form action="/" method="POST">
+    <form action="/locais" method="POST">
         @csrf
         <div class="form-group">
             <label for="nome" >Nome do Local:</label>

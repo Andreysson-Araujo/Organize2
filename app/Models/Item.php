@@ -16,7 +16,16 @@ class Item extends Model
         'quantidade', 
         'local_id', 
         'status', 
-        'categoria', 
-        'marca'
+        'categoria_id', 
     ];
+
+    public function local()
+    {
+        return $this->belongsTo(Local::class, 'local_id');
+    }
+
+    public function categoria()
+    {
+        return $this->belongsTo(Categoria::class, 'categoria_id'); // A chave estrangeira é categoria_id
+    }
 }

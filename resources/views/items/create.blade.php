@@ -42,18 +42,15 @@
         </div>
         <div class="form-group">
             <label for="categoria">Categoria:</label>
-            <select id="categoria" name="categoria" class="form-control" required>
+            <select id="categoria" name="categoria_id" class="form-control" required>
                 <option value="">Selecione uma categoria</option>
                 @foreach($categorias as $categoria)
-                    <option value="{{ $categoria->nome }}">{{ $categoria->nome }}</option>
+                    <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
                 @endforeach
             </select>
+            
         </div>
         
-        <div class="form-group">
-            <label for="marca">Marca:</label>
-            <input type="text" class="form-control" id="marca" name="marca" placeholder="Marca do item" required>
-        </div>
         <button type="submit" class="btn btn-success">Salvar</button>
     </form>
 </div>

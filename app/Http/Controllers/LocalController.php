@@ -28,7 +28,7 @@ class LocalController extends Controller
 
         $local = Local::create($validated);
 
-        return redirect('/')->with('msg', 'Local adicionado com sucesso!'); 
+        return redirect()->route('locais.index')->with('msg', 'Local adicionado com sucesso!');
        }
 
        public function edit($id)

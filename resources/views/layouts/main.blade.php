@@ -20,12 +20,12 @@
       <header>
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="collapse navbar-collapse" id="navbar">
-            <a href="/" class="navbar-brand">
+            <a href="/welcome" class="navbar-brand">
               <img src="/img/alien-svgrepo-com.svg" alt="HDC Events">
             </a>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a href="/items" class="nav-link">Itens</a>
+                <a href="/items/" class="nav-link">Itens</a>
               </li>
               <li class="nav-item">
                 <a href="/items/create" class="nav-link">Entrada</a>

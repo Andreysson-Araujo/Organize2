@@ -19,7 +19,8 @@ Route::get('/welcome', [ItemController::class, 'index'])->name('welcome');
 // Rota para criar um novo item
 Route::get('/items/create', [ItemController::class, 'create']);
 Route::get('/items/{id}', [ItemController::class, 'show']); 
-Route::post('/items', [ItemController::class, 'store']);  
+Route::post('/items', [ItemController::class, 'store']);
+
 
 // Rotas do LocalController (CRUD)
 Route::resource('locais', LocalController::class);
