@@ -69,13 +69,13 @@ class ItemController extends Controller
             'patrimonio' => 'required|string|max:255',
             'quantidade' => 'required|integer|min:1',
             'local_id' => 'required|exists:locais,id',
-            'status' => 'required|in:ativo,inativo',
-            'categoria_id' => 'required|exists:categorias,id',
+            'status' => 'required|string|max:255',
+            'categoria_id' => 'required|exists:categoria,id',
         ]);
 
         $item = Item::findOrFail($id);
         $item->update($validated);
 
-        return redirect()->route('items.index')->with('success', 'Item atualizado com sucesso!');
+        return redirect()->route('items.index')->with('msg', 'Item atualizado com sucesso!');
     }
 }

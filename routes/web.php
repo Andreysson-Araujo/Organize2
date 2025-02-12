@@ -22,7 +22,9 @@ Route::get('/items/{id}', [ItemController::class, 'show']);
 Route::post('/items', [ItemController::class, 'store']);
 Route::get('/items', [ItemController::class, 'index'])->name('items.index');
 Route::get('/items/{id}/edit', [ItemController::class, 'edit'])->name('items.edit');
+Route::put('/items/{id}', [ItemController::class, 'update'])->name('items.update');
 
+//Route
 
 // Rotas do LocalController (CRUD)
 Route::resource('locais', LocalController::class);

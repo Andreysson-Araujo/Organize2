@@ -7,7 +7,7 @@
     <h1>Editar Item: {{ $item->nome_item }}</h1>
 
     <!-- Formulário de edição do item -->
-    <form action="{{ route('items.edit', $item->id) }}" method="POST">
+    <form action="{{ route('items.update', $item->id) }}" method="POST">
         @csrf
         @method('PUT')
 
