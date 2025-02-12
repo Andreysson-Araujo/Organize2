@@ -78,4 +78,12 @@ class ItemController extends Controller
 
         return redirect()->route('items.index')->with('msg', 'Item atualizado com sucesso!');
     }
+
+    public function destroy($id)
+    {
+        $item = Item::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('items.index')->with('msg', 'Item deletado com sucesso');
+    }
 }

@@ -29,7 +29,7 @@
                         <td>{{ $item->categoria->nome ?? 'N/A' }}</td> <!-- Exibindo nome da categoria -->
                         <td>
                             <a href="{{ route('items.edit', $item->id) }}" class="btn btn-warning">Editar</a>
-                            <form action="" method="POST" style="display: inline;">
+                            <form action="{{route('items.destroy', $item->id)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir este local?')">Excluir</button>
