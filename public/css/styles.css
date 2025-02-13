@@ -126,6 +126,16 @@ header {
     padding: 10px;
 }
 
+.msg_e{
+    background-color: #f79a93;
+    color: #6d0000;
+    border: 2px solid #e9613f;
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 10px;
+}
+
 /* Footer */
 footer {
     text-align: center;

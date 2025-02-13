@@ -49,12 +49,18 @@
       <main>
         <div class="container-fluid">
           <div class="row">
-            @if(session('msg'))
-              <p class="msg">{{session('msg')}}</p>
-            @endif
-            @yield('content')
+              @if(session('msg'))
+                  <p class="msg text-success">{{ session('msg') }}</p>
+              @endif
+      
+              @if(session('msg_e'))
+                  <p class="msg_e">{{ session('msg_e') }}</p>
+              @endif
+      
+              @yield('content')
           </div>
-        </div>
+      </div>
+      
       </main>
       <footer>
         <p>Detin &copy; 2025</p>

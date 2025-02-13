@@ -22,7 +22,7 @@
                 @foreach ($items as $item)
                     <tr>
                         <td>{{ $item->nome_item }}</td>
-                        <td>{{ $item->patrimonio }}</td>
+                        <td>{{ $item->patrimonio ?? 'Não tem' }}</td>
                         <td>{{ $item->quantidade }}</td>
                         <td>{{ $item->local->nome ?? 'N/A' }}</td> <!-- Exibindo nome do local -->
                         <td>{{ ucfirst($item->status) }}</td>
