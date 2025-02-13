@@ -59,7 +59,7 @@ class ItemController extends Controller
             return redirect()->route('welcome')->with('msg', 'Item Adicionado com sucesso!');
         } catch (\Exception $e) {
             // Caso ocorra qualquer erro, retorna com uma mensagem de erro
-            return redirect()->route('welcome')->with('msg_e', 'Não foi possível inserir esse Item.');
+            return redirect()->route('welcome')->with('msg_e', 'Error, patrimonio ja existe!');
         }
     }
     
