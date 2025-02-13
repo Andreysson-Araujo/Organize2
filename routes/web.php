@@ -5,6 +5,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LocalController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RetiradaController;
 
 // Página inicial que exibe os últimos itens
 Route::get('/', function () {
@@ -29,7 +30,10 @@ Route::delete('/items/{id}', [ItemController::class, 'destroy'])->name('items.de
 
 // Rotas do LocalController (CRUD)
 Route::resource('locais', LocalController::class);
+//Rotas do CategoriasController
 Route::resource('categorias', CategoriaController::class);
+//Rotas do RetiradaController
+Route::resource('retiradas', RetiradaController::class);
 
 // Rota para buscar itens (busca por nome)
 

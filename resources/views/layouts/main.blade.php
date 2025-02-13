@@ -31,6 +31,9 @@
                 <a href="/items/create" class="nav-link">Entrada</a>
               </li>
               <li class="nav-item">
+                <a href="/retiradas" class="nav-link">Saida</a>
+              </li>
+              <li class="nav-item">
                 <a href="/locais/" class="nav-link">Locais</a>
               </li>
               <li class="nav-item">
