@@ -79,7 +79,6 @@
         var temPatrimonio = document.getElementById("tem_patrimonio").value;
         var patrimonioGroup = document.getElementById("patrimonio-group");
         var quantidadeInput = document.getElementById("quantidade");
-
         if (temPatrimonio === "sim") {
             patrimonioGroup.style.display = "block";
             quantidadeInput.value = 1;

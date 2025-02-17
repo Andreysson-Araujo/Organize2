@@ -15,7 +15,7 @@
                 <th>Item</th>
                 <th>Quantidade</th>
                 <th>Retirado por</th>
-                <th>Data</th>
+                <th>Data da Retirada</th>
             </tr>
         </thead>
         <tbody>

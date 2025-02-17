@@ -6,7 +6,7 @@ use App\Http\Controllers\LocalController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RetiradaController;
-
+use App\Http\Controllers\UserController;
 // Página inicial que exibe os últimos itens
 Route::get('/', function () {
     return redirect()->route('login'); // 🔥 Redireciona para a tela de login
@@ -47,6 +47,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::prefix('users')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('users.index'); // Lista todos os usuários
+    Route::get('/create', [UserController::class, 'create'])->name('users.create'); // Formulário de criação
+    Route::post('/', [UserController::class, 'store'])->name('users.store'); // Salvar novo usuário
+    Route::get('/{id}', [UserController::class, 'show'])->name('users.show'); // Mostrar um usuário
+    Route::get('/{id}/edit', [UserController::class, 'edit'])->name('users.edit'); // Formulário de edição
+    Route::put('/{id}', [UserController::class, 'update'])->name('users.update'); // Atualizar usuário
+    Route::delete('/{id}', [UserController::class, 'destroy'])->name('users.destroy'); // Excluir usuário
 });
 
 // Importa as rotas de autenticação

@@ -40,10 +40,10 @@
                 <a href="/categorias/" class="nav-link">Categorias</a>
               </li>
               <li class="nav-item">
-                <a href="/" class="nav-link">Saida</a>
+                <a href="/users" class="nav-link">Usuarios</a>
               </li>
               <li class="nav-item">
-                <a href="/" class="nav-link">Usuarios</a>
+                <a href="/" class="nav-link">Meu Perfil</a>
               </li>
             </ul>
           </div>

@@ -13,8 +13,9 @@
                 </div>
 
                 <!-- Botão para ir para a página Welcome -->
-                <div class="mt-4">
-                    <a href="{{ url('/') }}" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+                <div class="mt-4 flex justify-center">
+                    <a href="{{ url('/welcome') }}" 
+                        class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-2xl py-4 px-8 rounded-lg shadow-lg transition duration-300">
                         Ir para a Página Inicial
                     </a>
                 </div>
