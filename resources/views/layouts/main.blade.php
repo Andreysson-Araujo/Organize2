@@ -21,7 +21,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="collapse navbar-collapse" id="navbar">
             <a href="/welcome" class="navbar-brand">
-              <img src="/img/alien-svgrepo-com.svg" alt="HDC Events">
+              <img src="/img/logoOrganize.png" alt="HDC Events">
             </a>
             <ul class="navbar-nav">
               <li class="nav-item">

@@ -19,7 +19,7 @@
                 <th>Nome</th>
                 <th>Username</th>
                 <th>Email</th>
-                <th>Admin?</th>
+                <th>Admin</th>
                 <th>Ações</th>
             </tr>
         </thead>

@@ -9,7 +9,7 @@
         <table class="table table-bordered mt-3">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    
                     <th>Nome</th>
                     <th>Ações</th>
                 </tr>
@@ -17,7 +17,7 @@
             <tbody>
                 @foreach ($categorias as $categoria)
                     <tr>
-                        <td>{{ $categoria->id }}</td>
+                        
                         <td>{{ $categoria->nome }}</td>
                         <td>
                             <a href="{{ route('categorias.edit', $categoria->id) }}" class="btn btn-warning">Editar</a>

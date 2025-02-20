@@ -13,7 +13,8 @@ Route::get('/', function () {
 });
 
 // Em routes/web.php
-Route::get('/welcome', [ItemController::class, 'index'])->name('welcome');
+//RPTA DE Dashboard Principal
+Route::get('/welcome', [ItemController::class, 'welcome'])->name('welcome');
 
 
 

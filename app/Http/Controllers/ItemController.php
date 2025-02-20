@@ -19,6 +19,14 @@ class ItemController extends Controller
         return view('items.index', compact('items'));
     }
 
+        public function welcome()
+    {
+        $recentItems = Item::with(['local', 'categoria'])->latest()->take(6)->get(); 
+        
+        return view('welcome', compact('recentItems'));
+    }
+
+
     /**
      * Exibe o formulário para criar um novo item.
      */

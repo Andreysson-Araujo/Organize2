@@ -6,14 +6,14 @@
 
 <div id="search-container" class="col-md-12 mb-4">
   <h1>Busque um item</h1>
-  <form id="search-form">
+  <form id="search-form" action="{{ route('items.index') }}" method="GET">
     <input 
       type="text" 
       id="search" 
       name="search" 
       class="form-control" 
-      placeholder="Procurar item"
-    >
+      placeholder="Procurar item">
+    <button type="submit" class="btn btn-primary mt-2">Buscar</button>
   </form>
 </div>
 
@@ -26,7 +26,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">{{ $item->nome_item }}</h5>
-            <p class="card-text"><strong>Patrimônio:</strong> {{ $item->patrimonio }}</p>
+            <p class="card-text"><strong>Patrimônio:</strong> {{ $item->patrimonio ?? 'N/A' }}</p>
             <p class="card-text"><strong>Quantidade:</strong> {{ $item->quantidade }}</p>
             <p class="card-text"><strong>Local:</strong> {{ $item->local->nome }}</p>
             <p class="card-text"><strong>Status:</strong> {{ ucfirst($item->status) }}</p>
@@ -36,7 +36,7 @@
       </div>
     @endforeach
   </div>
-  <button type="submit" class="btn btn-secondary">Ver itens</button>
+  <a href="{{ route('items.index') }}" class="btn btn-secondary">Ver todos os itens</a>
 </div>
 
 @endsection
