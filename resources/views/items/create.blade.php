@@ -76,6 +76,7 @@
 <!-- Script para alternar entre patrimônio e quantidade -->
 <script>
     function togglePatrimonio() {
+        console.log("Feito por AndreyssonDEV");
         var temPatrimonio = document.getElementById("tem_patrimonio").value;
         var patrimonioGroup = document.getElementById("patrimonio-group");
         var quantidadeInput = document.getElementById("quantidade");

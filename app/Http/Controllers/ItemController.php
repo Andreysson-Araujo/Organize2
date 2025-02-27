@@ -22,8 +22,14 @@ class ItemController extends Controller
         public function welcome()
     {
         $recentItems = Item::with(['local', 'categoria'])->latest()->take(6)->get(); 
+
+        $consumoItems = Item::with(['local', 'categoria'])
+                            ->whereHas('categoria', function ($query) {
+                                $query->whereIn('nome', ['Papel A4', 'Bobina']);
+                            })
+                            ->get();
         
-        return view('welcome', compact('recentItems'));
+        return view('welcome', compact('recentItems', 'consumoItems'));
     }
 
 

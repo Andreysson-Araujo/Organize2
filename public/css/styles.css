@@ -95,6 +95,11 @@ header {
     width: 900;
 }
 
+#itensConsumo-container{
+    align-items: center;
+    text-align: center;
+}
+
 
 #search-container form{
     width: 50%;
