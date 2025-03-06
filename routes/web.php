@@ -60,5 +60,6 @@ Route::prefix('users')->group(function () {
     Route::delete('/{id}', [UserController::class, 'destroy'])->name('users.destroy'); // Excluir usuário
 });
 
+
 // Importa as rotas de autenticação
 require __DIR__.'/auth.php';
