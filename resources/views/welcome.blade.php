@@ -4,6 +4,7 @@
 
 @section('content')
 
+<!-- Não tem nada para voceê procurar aqui -->
 <div id="search-container" class="col-md-12 mb-4">
   <h1>Busque um item</h1>
   <form id="search-form" action="{{ route('items.index') }}" method="GET">
@@ -24,9 +25,9 @@
   <div class="row">
     @foreach ($consumoItems as $item)
       <div class="col-md-4 mb-3">
-        <div class="card border-warning">
+        <div class="card border-danger">
           <div class="card-body">
-            <h5 class="card-title text-warning">{{ $item->nome_item }}</h5>
+            <h5 class="card-title text-danger">{{ $item->nome_item }}</h5>
             <p class="card-text"><strong>Quantidade:</strong> {{ $item->quantidade }}</p>
             <p class="card-text"><strong>Local:</strong> {{ $item->local->nome ?? 'Desconhecido' }}</p>
             <p class="card-text"><strong>Categoria:</strong> {{ $item->categoria->nome }}</p>
