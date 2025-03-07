@@ -32,7 +32,7 @@
                             <form action="{{route('items.destroy', $item->id)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir este local?')">Excluir</button>
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir este Item?')">Excluir</button>
                             </form>
                         </td>
                     </tr>

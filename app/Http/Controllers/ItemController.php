@@ -95,6 +95,16 @@ class ItemController extends Controller
         return redirect()->route('items.index')->with('msg', 'Item atualizado com sucesso!');
     }
 
+    public function edit($id)
+{
+    $item = Item::findOrFail($id);
+    $locais = Local::all();
+    $categorias = Categoria::all();
+
+    return view('items.edit', compact('item', 'locais', 'categorias'));
+}
+
+
     public function destroy($id)
     {
         $item = Item::findOrFail($id);
