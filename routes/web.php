@@ -50,15 +50,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware('auth')->prefix('users')->group(function () {
-    Route::get('/', [UserController::class, 'index'])->name('users.index'); // Lista todos os usuários
+Route::middleware(['auth', 'admin'])->prefix('users')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('users.index'); // Listar usuários
     Route::get('/create', [UserController::class, 'create'])->name('users.create'); // Formulário de criação
-    Route::post('/', [UserController::class, 'store'])->name('users.store'); // Salvar novo usuário
-    Route::get('/{id}', [UserController::class, 'show'])->name('users.show'); // Mostrar um usuário
+    Route::post('/', [UserController::class, 'store'])->name('users.store'); // Salvar usuário
+    Route::get('/{id}', [UserController::class, 'show'])->name('users.show'); // Visualizar usuário
     Route::get('/{id}/edit', [UserController::class, 'edit'])->name('users.edit'); // Formulário de edição
     Route::put('/{id}', [UserController::class, 'update'])->name('users.update'); // Atualizar usuário
     Route::delete('/{id}', [UserController::class, 'destroy'])->name('users.destroy'); // Excluir usuário
 });
+
 
 
 
