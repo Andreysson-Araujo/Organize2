@@ -26,7 +26,7 @@ class LocalController extends Controller
             'nome' => 'required|string|max:255',
         ]);
 
-        $local = Local::create($validated);
+        Local::create(['nome' => $request->nome]);
 
         return redirect()->route('locais.index')->with('msg', 'Local adicionado com sucesso!');
        }

@@ -37,6 +37,9 @@
                 <a href="/locais/" class="nav-link">Locais</a>
               </li>
               <li class="nav-item">
+                <a href="/orgaos/" class="nav-link">Orgaos</a>
+              </li>
+              <li class="nav-item">
                 <a href="/categorias/" class="nav-link">Categorias</a>
               </li>
               <li class="nav-item">

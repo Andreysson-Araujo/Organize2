@@ -24,7 +24,7 @@
                     <td>{{ $retirada->item->nome_item }}</td>
                     <td>{{ $retirada->quantidade }}</td>
                     <td>{{ $retirada->retirado_por }}</td>
-                    <td>{{ $retirada->data_retirada }}</td>
+                    <td>{{ \Carbon\Carbon::parse($retirada->data_retirada)->format('d-m-Y') }}</td>
                 </tr>
             @endforeach
         </tbody>

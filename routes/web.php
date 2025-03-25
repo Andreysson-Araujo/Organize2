@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RetiradaController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrgaoController;
 // Página inicial que exibe os últimos itens
 Route::get('/', function () {
     return redirect()->route('login'); // 🔥 Redireciona para a tela de login
@@ -28,6 +29,8 @@ Route::put('/items/{id}', [ItemController::class, 'update'])->name('items.update
 Route::delete('/items/{id}', [ItemController::class, 'destroy'])->name('items.destroy');
 
 //Route
+
+Route::resource('orgaos', OrgaoController::class);
 
 // Rotas do LocalController (CRUD)
 Route::resource('locais', LocalController::class);
